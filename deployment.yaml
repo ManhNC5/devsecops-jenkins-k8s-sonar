@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: asgbuggy-deployment
+  name: sedevsecop-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: asgbuggy
+      app: sedevsecop
   template:
     metadata:
       labels:
-        app: asgbuggy
+        app: sedevsecop
     spec:
       containers:
-      - name: asgbuggy
+      - name: sedevsecop
         image: 767397696059.dkr.ecr.ca-central-1.amazonaws.com/asg
         imagePullPolicy: Always
         ports:
@@ -24,9 +24,9 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: asgbuggy
-    k8s-app: asgbuggy
-  name: asgbuggy
+    app: sedevsecop
+    k8s-app: sedevsecop
+  name: sedevsecop
 spec:
   ports:
   - name: http
@@ -35,4 +35,4 @@ spec:
     targetPort: 8080
   type: LoadBalancer
   selector:
-    app: asgbuggy
+    app: sedevsecop
